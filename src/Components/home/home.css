@@ -1,0 +1,54 @@
+.dash-container
+{
+    margin-right: auto;
+    margin-left: auto;
+    background-color:#435c70;
+    margin-bottom: 0;
+}
+.dash-row
+{
+    margin:0 200px;
+}
+.dash-title
+{
+    color:#fff;
+    padding:50px 10px;
+    margin:0;
+}
+.dash-content
+{
+    margin:0 200px;
+    background-color: darkred;
+    margin-bottom: 40px;
+}
+.con
+{
+    width:530px;
+    background-color:#435c70;
+    height:350px;
+    display: inline-block;
+    margin:14px;
+}
+.con-block
+{
+    background-color: deeppink;
+    margin:35px 40px;
+    box-sizing: border-box;
+    height:280px;
+}
+.con-title
+{
+    color:#fff;
+    font-size: 18px;
+}
+.order-list
+{
+    margin:17px;
+    background-color: aqua;
+    height:450px;
+}
+.ol-title
+{
+    color: #fff;
+    padding:10px 40px;
+}

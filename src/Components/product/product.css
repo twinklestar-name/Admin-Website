@@ -1,0 +1,111 @@
+.product-page
+{
+    background-color:#435c70;
+    margin:0;
+}
+.pro-container
+{
+    margin: 0 200px;
+    margin-top:35px;
+    display: flex;
+}
+.pl-con
+{
+    width:760px;
+    background-color: crimson;
+    margin-bottom: 30px;
+    height:700px;
+    margin-right:30px;
+}
+.pl
+{
+    height: 445px;
+    width:670px;
+    margin:40px;
+    margin-bottom: 15px;
+    overflow-y: scroll;
+    background-color: black;
+}
+
+table 
+{
+    background-color: #50697f;
+    color: #fff;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    margin:0;
+    height: 445px;
+}
+.l-table
+{
+    width:653px;
+}
+thead
+{
+    background-color: #486177;
+    color: #fff;
+    font-size: 12px;
+}
+tr
+{
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+table thead th
+{
+    padding:14px 20px;
+}
+table tbody th
+{
+    padding:25px 20px;
+}
+table input
+{
+    background-color: #394e64;
+    padding:10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+table tbody i
+{
+   font-size: 20px;
+   background-color: blue;
+   border-radius:25px;
+   padding:12px;
+}
+.pc-con
+{
+    background-color: crimson;
+    margin-bottom: 30px;
+    width: 330px;
+    height: 610px;
+}
+.add-btn,.de-se-btn
+{
+    width:670px;
+    display: block;
+    margin-left: 40px;
+    margin-bottom: 15px;
+}
+.pc h2
+{
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px; 
+    padding-top:20px;
+    padding-left:40px;
+}
+.right-tc
+{
+    height: 465px;
+    margin-bottom: 15px;
+    overflow-y: scroll;
+    margin-left:40px;
+    margin-right:40px;
+}
+.r-table
+{
+    width:230px;
+    height: 465px;
+}
