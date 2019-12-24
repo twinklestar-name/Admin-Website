@@ -27,7 +27,7 @@ class App extends Component {
 
   render(){
   return (
-    <BrowserRouter>{localStorage.setItem('userLoggedInStatus',false)}
+    <BrowserRouter>
     <div className={classes.App}>
       <Navbar/>
       <Switch>
