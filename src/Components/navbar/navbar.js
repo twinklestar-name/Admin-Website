@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Navbar extends Component{
 
     state={
-        loggedInStatus:JSON.parse(localStorage.getItem('userLoggedInStatus')),
+        //loggedInStatus:localStorage.getItem('userLoggedInStatus')==='true',
         displayMenu:false,
         width:window.innerWidth
     }
 
-    userLoggedOut=()=>{
+    /*userLoggedOut=()=>{
         localStorage.setItem('userLoggedInStatus',false)
         this.setState({loggedInStatus:false})
-    }
+    }*/
 
     render(){
 
@@ -57,8 +58,8 @@ class Navbar extends Component{
                     </ul>
                     <ul className="nav">
                         <li className="item">
-                        <Link to={'/'}><div className="link" onClick={this.userLoggedOut}>
-                            <div className="admin">Admin,{this.state.loggedInStatus?<b>Logout</b>:<b>Login</b>} </div>
+                        <Link to={'/'}><div className="link" onClick=''>
+                        {this.props.userLoggedInStatus?<div className="admin">Admin,<b>Logout</b></div>:<div className="admin">Admin,<b>Login</b></div>}
                             </div>
                         </Link>
                         </li>
@@ -89,16 +90,26 @@ class Navbar extends Component{
                     </ul>
                     <ul className="nav">
                         <li className="item">
-                        <Link to={'/'}><div className="link" onClick={this.userLoggedOut}>
-                        {this.state.loggedInStatus?<div className="admin">Admin,<b>Logout</b></div>:<div className="admin">Admin,<b>Login</b></div>}
-                            </div>
-                        </Link>
+                        {this.props.userLoggedInStatus?
+                        <Link to={'/'}><div className="link" onClick=''>
+                        <div className="admin">Admin,<b>Logout</b></div>
+                        </div></Link>
+                        :
+                        <Link to={'/'}><div className="link" onClick=''>
+                        <div className="admin">Admin,<b>Login</b></div>
+                        </div></Link>}
                         </li>
                     </ul>
                 </div>}
             </div>
         </nav>
-    )}
-}
+    )}}
 
-export default Navbar;
+    const mapGlobalStateToProps=(globalState)=>{
+        return{
+            userLoggedInStatus:globalState.loggedInStatus
+        }
+    }
+
+
+export default connect(mapGlobalStateToProps)(Navbar);

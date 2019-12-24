@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import './login.css';
+import { connect } from 'react-redux';
 
 class Login extends Component{
 
     state={
         userField:false,
         passwordField:false,
-        loggedInStatus:false
+        //loggedInStatus:false
     }
 
-    loggedInStatus=()=>{
+    /*loggedInStatus=()=>{
         localStorage.setItem('userLoggedInStatus',true);
         this.setState({loggedInStatus:true})
-    }
+    }*/
 
     handleSubmit=(e)=>{
         e.preventDefault()
@@ -70,4 +71,10 @@ class Login extends Component{
     )}
 }
 
-export default Login;
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        onUserLoggedIn: ()=>{dispatch({type:'USER_LOGIN'})}
+    }
+}
+
+export default connect(null,mapDispatchToProps)(Login);

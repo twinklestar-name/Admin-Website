@@ -18,6 +18,7 @@ class App extends Component {
     .then(response=>{
       console.log(response.data)
       localStorage.setItem("Response",JSON.stringify(response.data))
+      this.props.onUserLoggedIn();
     })
     .catch(err=>{
       console.log(err+"please refresh the page")
