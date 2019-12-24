@@ -63,29 +63,30 @@ option
     font-weight: 700;
     padding:10px 40px;
 }
-.avatar-con img
-{
-    cursor: pointer;
-    width:325px;
-    margin-left:40px;
-    height:265px;
-    display: block;
-}
-.avatar-con img:hover
-    .avatar-con i{
-        display: block;
-    }
 .avatar-con i
 {
    font-size: 20px;
    background-color: #394e64;
    border-radius:50%;
    padding:15px;
-   position: relative;
-   top:-150px;
-   left:180px;
+   position: absolute;
+   top:590px;
+   left:380px;
    display: none;
+   transition-duration: 5s;
 }
+.avatar-con img
+{
+    cursor: pointer;
+    width:325px;
+    margin-left:40px;
+    margin-right:40px;
+    height:265px;
+    display: block;
+}
+.image-con:hover i{
+        display: block;
+    }
 .set-con
 {
     background-color:#435c70;
@@ -120,6 +121,15 @@ option
     display: block;
     width:250px;
     margin-right:25px;
+}
+.choose-file
+{
+    position: absolute;
+    top:800px;
+    left:290px;
+    background-color: transparent;
+    opacity: 0;
+    cursor: pointer;
 }
 .upload-pic-btn
 {
@@ -222,6 +232,15 @@ option
     display: block;
     width: 400px;
     margin-right: 25px;
+}
+.avatar-con i
+{
+   font-size: 20px;
+   border-radius:50%;
+   padding:15px;
+   position: absolute;
+   top:720px;
+   left:250px;
 }
 
 }

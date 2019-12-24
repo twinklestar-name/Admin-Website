@@ -20,13 +20,13 @@ class App extends Component {
       localStorage.setItem("Response",JSON.stringify(response.data))
     })
     .catch(err=>{
-      console.log(err)
+      console.log(err+"please refresh the page")
     })
   }
 
   render(){
   return (
-    <BrowserRouter>
+    <BrowserRouter>{localStorage.setItem('userLoggedInStatus',false)}
     <div className={classes.App}>
       <Navbar/>
       <Switch>

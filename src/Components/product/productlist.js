@@ -6,12 +6,12 @@ class ProductList extends Component{
         data:JSON.parse(localStorage.getItem("Response")).productsPage.products
     }
     onDeleteIconClick=(e)=>{
-        var array=this.state.data
+        let array=this.state.data
+        let tempObject=JSON.parse(localStorage.getItem("Response"))
         array.splice(e.target.id,1)
+        tempObject.productsPage.products=array
+        localStorage.setItem("Response",JSON.stringify(tempObject))
         this.setState({data:array})
-        var object=JSON.parse(localStorage.getItem("Response"))
-        object.productsPage.products=array
-        localStorage.setItem("Response",JSON.stringify(object))  
     }
 
     selectedItemsIds=[];
@@ -41,11 +41,11 @@ class ProductList extends Component{
     // })
 
     
-    productlist=JSON.parse(localStorage.getItem("Response")).productsPage.products.map((item,pos)=>{
+    productlist=()=>(JSON.parse(localStorage.getItem("Response")).productsPage.products.map((item,pos)=>{
         return(
             <tr key={pos}>
                <th scope="row">
-               <input id={pos} type="checkbox" onClick={(e)=>this.onChkBoxClick(e)}></input>
+               <input id={pos} type="checkbox" class="checkbox" onClick={(e)=>this.onChkBoxClick(e)}></input>
                </th>
                <td scope="row">{item.name}</td>
                <td scope="row">{item.unitSold}</td>
@@ -58,9 +58,7 @@ class ProductList extends Component{
                </td>
             </tr>
         )
-    })
-
-    
+    }))
 
     render(){
         return(
@@ -77,7 +75,7 @@ class ProductList extends Component{
                                  </tr>
                              </thead>
                              <tbody>{
-                                      this.productlist  
+                                        this.productlist()                               
                                     }
                             </tbody>
                 </table>

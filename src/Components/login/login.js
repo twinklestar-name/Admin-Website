@@ -5,7 +5,13 @@ class Login extends Component{
 
     state={
         userField:false,
-        passwordField:false
+        passwordField:false,
+        loggedInStatus:false
+    }
+
+    loggedInStatus=()=>{
+        localStorage.setItem('userLoggedInStatus',true);
+        this.setState({loggedInStatus:true})
     }
 
     handleSubmit=(e)=>{
@@ -27,7 +33,7 @@ class Login extends Component{
 
     render(){
     return(
-        <div className="login-page">{console.log(this.props)}
+        <div className="login-page">
             <div className="extra-space">hi</div>
         <div className="log-container">
             <div className="row">
@@ -50,7 +56,7 @@ class Login extends Component{
                                         <input name="password" type="password" className="form-input validate" id="password" onInput={(e)=>this.onInputChange(e,'password')} required></input>
                                     </div>
                                     <div className="form-group">
-                                    <button type="submit" className="submit-btn" >Login</button>
+                                    <button type="submit" className="submit-btn" onClick={this.loggedInStatus}>Login</button>
                                     </div>
                                 </form>
                             </div>

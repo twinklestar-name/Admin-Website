@@ -8,20 +8,18 @@ class Product extends Component{
 
     state={
         data:JSON.parse(localStorage.getItem("Response")).productsPage.products,
-        pdts:localStorage.getItem("selectedItemsIds")
     }
 
-    selectedPdts=this.state.pdts;
-
-    onDeleteSelectedBtnClick=()=>{
-        var array=this.state.data;
-        console.log(this.state.pdts)
-        /*localStorage.getItem("selectedItemsIds").map((item)=>{
-           array.splice(item,1)
-         })*/
-        this.setState({data:array})
-        var object=JSON.parse(localStorage.getItem("Response"))
-        object.productsPage.products=array
+    onDeleteSelectedBtnClick=(e)=>{
+        let array=JSON.parse(localStorage.getItem("selectedItemsIds"))
+        array.map(item=>console.log(item))
+        let object=JSON.parse(localStorage.getItem("Response"))
+        let tempObject=JSON.parse(localStorage.getItem("Response")).productsPage.products
+        console.log(tempObject)
+        array.map(item=>tempObject.splice(item,1))
+        console.log(tempObject)
+        object.productsPage.products=tempObject
+        console.log(object)
         localStorage.setItem("Response",JSON.stringify(object))
     }
 
@@ -35,7 +33,7 @@ class Product extends Component{
                      <ProductList/>
                      </div>
                      <Link to={'/addproduct'}><button className="add-btn">ADD NEW PRODUCT</button></Link>
-                     <button className="de-se-btn" onClick={this.onDeleteSelectedBtnClick}>DELETE SELECTED PRODUCTS</button>
+                     <button className="de-se-btn" onClick={(e)=>this.onDeleteSelectedBtnClick(e)}>DELETE SELECTED PRODUCTS</button>
                  </div>
                  <div className="pc-con">
                      <div className="pc">

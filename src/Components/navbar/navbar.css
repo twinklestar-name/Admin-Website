@@ -81,7 +81,7 @@ li
 {
     box-sizing: border-box;
     background-color: #567086;
-    width:1010px;
+    width:1050px;
     position:absolute;
     top:0;
     left:500px;
@@ -128,7 +128,7 @@ li
 }
 .toggle
 {
-    display: none;
+    display: block;
     cursor: pointer;
     border-color: #708da8;
     box-shadow: rgba(255, 255, 255, 0.1) 0 2px 2px 4px;
@@ -140,7 +140,7 @@ li
     border: 1px solid transparent;
     margin-bottom: 0;
     position: absolute;
-    top:35px;
+    top:33px;
     right:15px;
 }
 

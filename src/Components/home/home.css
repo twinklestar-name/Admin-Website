@@ -85,7 +85,7 @@
     .con
     {
         width: 480px;
-        height:550px;
+        height:450px;
     }
     .con-block
     {
@@ -94,11 +94,17 @@
     .con-title
     {
         font-size: 25px;
+        margin-bottom:80px;
+        padding-top:50px;
+    }
+    .storage-and-noti-boxes
+    {
+        display: block;
     }
     .storage-con,.noti-con
     {
         width:480px;
-        height:550px;
+        height:450px;
     }
     .order-list
     {

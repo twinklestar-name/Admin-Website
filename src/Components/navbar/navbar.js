@@ -5,13 +5,21 @@ import {Link} from 'react-router-dom';
 class Navbar extends Component{
 
     state={
-        loggedInStatus:localStorage.getItem('userLoggedInStatus')
+        loggedInStatus:JSON.parse(localStorage.getItem('userLoggedInStatus')),
+        displayMenu:false,
+        width:window.innerWidth
+    }
+
+    userLoggedOut=()=>{
+        localStorage.setItem('userLoggedInStatus',false)
+        this.setState({loggedInStatus:false})
     }
 
     render(){
 
-        var userLoggedOut=()=>{
-            localStorage.setItem('userLoggedInStatus',false)
+        var displayCollapse=()=>{
+            this.setState({displayMenu:!this.state.displayMenu})
+            console.log(this.state.width)
         }
 
     return(
@@ -20,10 +28,10 @@ class Navbar extends Component{
                 <a className="navbar-brand">
                     <h1 className="title">PRODUCT ADMIN</h1>
                 </a>
-                <button className="toggle">
+                <button className="toggle" onClick={displayCollapse}>
                     <i className="fas fa-bars tm-nav-icon"></i>
                 </button>
-                <div className="collapse">
+                {this.state.width<=1000?(this.state.displayMenu?<div className="collapse">
                     <ul className="nav">
                         <li className="item">
                         <Link to={'/home'}><div className="link">
@@ -49,13 +57,45 @@ class Navbar extends Component{
                     </ul>
                     <ul className="nav">
                         <li className="item">
-                        <Link to={'/'}><div className="link" onClick={userLoggedOut()}>
+                        <Link to={'/'}><div className="link" onClick={this.userLoggedOut}>
                             <div className="admin">Admin,{this.state.loggedInStatus?<b>Logout</b>:<b>Login</b>} </div>
                             </div>
                         </Link>
                         </li>
                     </ul>
-                </div>
+                </div>:null):<div className="collapse">
+                    <ul className="nav">
+                        <li className="item">
+                        <Link to={'/home'}><div className="link">
+                                <i className="fas fa-tachometer-alt"></i>
+                                <p>Dashboard</p>
+                            </div>
+                        </Link>
+                        </li>
+                        <li className="item">
+                            <Link to={'/product'}><div className="link">
+                                <i className="fas fa-shopping-cart"></i>
+                                <p>Products</p>
+                                </div>
+                            </Link>
+                        </li>
+                        <li className="item">
+                        <Link to={'/account'}><div className="link">
+                                <i className="fas fa-user"></i>
+                                <p>Accounts</p>
+                            </div>
+                        </Link>
+                        </li>
+                    </ul>
+                    <ul className="nav">
+                        <li className="item">
+                        <Link to={'/'}><div className="link" onClick={this.userLoggedOut}>
+                        {this.state.loggedInStatus?<div className="admin">Admin,<b>Logout</b></div>:<div className="admin">Admin,<b>Login</b></div>}
+                            </div>
+                        </Link>
+                        </li>
+                    </ul>
+                </div>}
             </div>
         </nav>
     )}
