@@ -2,6 +2,7 @@ import React from 'react';
 import './account.css'
 
 const Account=()=>{
+    var adminPic=JSON.parse(localStorage.getItem("Response")).accountsPage.Admin.profilePic;
     return(
          <div className="account-page">
              <div className="extra-space">hi</div>
@@ -20,27 +21,28 @@ const Account=()=>{
                  <div className="as-con">
                      <div className="avatar-con">
                          <h2>Change Avatar</h2>
-                         <img src="img/avatar.png" alt="avatar"/>
-                         <button className="upload-btn">UPLOAD NEW PHOTO</button>
+                         <img src={adminPic} alt="avatar"/>
+                         <i className="far fa-trash-alt tm-product-delete-icon"></i>
+                         <button className="upload-pic-btn">UPLOAD NEW PHOTO</button>
                      </div>
                      <div className="set-con">
                          <h2>Account Settings</h2>
                          <form className="acc-form">
                             <div className="form-group">
                                 <label for="accountname">Account Name</label>
-                                <input name="accountname" type="text" className="form" id="accountname" value required></input>
+                                <input name="accountname" type="text" className="form" id="accountname" required></input>
                             </div>
                             <div className="form-group">
                                 <label for="email">Account Email</label>
-                                <input name="email" type="email" className="form" id="email" value required></input>
+                                <input name="email" type="email" className="form" id="email" required></input>
                             </div>
                             <div className="form-group">
                                 <label for="password">Password</label>
-                                <input name="password" type="password" className="form" id="password" value required></input>
+                                <input name="password" type="password" className="form" id="password" required></input>
                             </div>
                             <div className="form-group">
                                 <label for="password">Re-enter Password</label>
-                                <input name="password" type="password" className="form" id="password" value required></input>
+                                <input name="password" type="password" className="form" id="password" required></input>
                             </div>
                             <div className="form-group">
                                 <label for="phone">Phone</label>
@@ -54,6 +56,7 @@ const Account=()=>{
                      </div>
                  </div>
              </div>
+             <div className="extra-space">hi</div>
          </div>
     )
 }

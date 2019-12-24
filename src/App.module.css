@@ -2,3 +2,22 @@
 {
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
+@media (max-width: 574px)
+{
+.App
+{
+    width:150%;
+}
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track
+{
+    background-color: #394e64;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color:#567086;
+}
+
+}

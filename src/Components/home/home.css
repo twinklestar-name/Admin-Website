@@ -2,7 +2,7 @@
 {
     margin-right: auto;
     margin-left: auto;
-    background-color:#435c70;
+    background-color: #4e657a;
     margin-bottom: 0;
 }
 .dash-row
@@ -18,7 +18,6 @@
 .dash-content
 {
     margin:0 200px;
-    background-color: darkred;
     margin-bottom: 40px;
 }
 .con
@@ -29,12 +28,22 @@
     display: inline-block;
     margin:14px;
 }
+.storage-and-noti-boxes
+{
+    display: flex;
+}
+.storage-con,.noti-con
+{
+    width:530px;
+    background-color:#435c70;
+    height:450px;
+    margin:14px;
+}
 .con-block
 {
-    background-color: deeppink;
     margin:35px 40px;
     box-sizing: border-box;
-    height:280px;
+    color:#fff;
 }
 .con-title
 {
@@ -44,11 +53,56 @@
 .order-list
 {
     margin:17px;
-    background-color: aqua;
+    background-color:#435c70;
     height:450px;
+    overflow-y: scroll;
 }
 .ol-title
 {
     color: #fff;
     padding:10px 40px;
+}
+
+@media (max-width: 574px)
+{
+    .dash-row
+    {
+        margin:0 20px;
+    }
+    .dash-title
+    {
+        font-size: 27px;
+        padding:70px 0;
+    }
+    .dash-content
+    {
+        margin:0 7px;   
+    }
+    .dash-container
+    {
+        margin-right: 0;
+    }
+    .con
+    {
+        width: 480px;
+        height:550px;
+    }
+    .con-block
+    {
+        height:500px;
+    }
+    .con-title
+    {
+        font-size: 25px;
+    }
+    .storage-con,.noti-con
+    {
+        width:480px;
+        height:550px;
+    }
+    .order-list
+    {
+        height: 690px;
+    }
+    
 }

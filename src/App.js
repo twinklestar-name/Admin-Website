@@ -8,6 +8,7 @@ import Product from './Components/product/product';
 import Account from './Components/account/account';
 import Addproduct from './Components/addproduct/addproduct';
 import axios from 'axios';
+import { Route, BrowserRouter, Switch }  from 'react-router-dom';
 
 
 class App extends Component {
@@ -23,19 +24,21 @@ class App extends Component {
     })
   }
 
-  
-
   render(){
   return (
+    <BrowserRouter>
     <div className={classes.App}>
       <Navbar/>
-      <Addproduct/>
-      <Product/>
-      <Account/>
-      <Dashboard/>
-      <Login/>
+      <Switch>
+            <Route path="/addproduct" component={Addproduct} />
+            <Route path="/account" component={Account} />
+            <Route path="/product" component={Product} />
+            <Route path="/home" component={Dashboard} />
+            <Route path="/" component={Login} />
+      </Switch>
       <Footer/>
     </div>
+    </BrowserRouter>
   );
 }}
 

@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './login.css';
 
-const Login=()=>{
+class Login extends Component{
+
+    state={
+        userField:false,
+        passwordField:false
+    }
+
+    handleSubmit=(e)=>{
+        e.preventDefault()
+        if(this.state.userField && this.state.passwordField)
+        {
+            this.props.history.push('/home');
+        }
+    }
+
+    onInputChange=(e,name)=>{
+        if(name==='username'){
+            e.target.value.length>0?this.setState({userField:true}):this.setState({userField:false})
+        }
+        else if(name==='password'){
+            e.target.value.length>0?this.setState({passwordField:true}):this.setState({passwordField:false})
+        }
+  }
+
+    render(){
     return(
-        <div className="login-page">
+        <div className="login-page">{console.log(this.props)}
             <div className="extra-space">hi</div>
         <div className="log-container">
             <div className="row">
@@ -16,17 +40,17 @@ const Login=()=>{
                         </div>
                         <div className="row">
                             <div className="col">
-                                <form className="login-form" action="./Components/home/home.js" method="post">
+                                <form className="login-form" onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label for="username">Username</label>
-                                        <input name="username" type="text" className="form-input" id="username" value required></input>
+                                        <input name="username" type="text" className="form-input validate" id="username" onInput={(e)=>this.onInputChange(e,'username')} required></input>
                                     </div>
                                     <div className="form-group">
                                         <label for="password">Password</label>
-                                        <input name="password" type="password" className="form-input" id="password" value required></input>
+                                        <input name="password" type="password" className="form-input validate" id="password" onInput={(e)=>this.onInputChange(e,'password')} required></input>
                                     </div>
                                     <div className="form-group">
-                                        <button type="submit" className="submit-btn">LOGIN</button>
+                                    <button type="submit" className="submit-btn" >Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -37,7 +61,7 @@ const Login=()=>{
         </div>
         <div className="extra-space">hi</div>
         </div>
-    )
+    )}
 }
 
 export default Login;

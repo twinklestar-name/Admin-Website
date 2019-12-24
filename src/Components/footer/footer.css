@@ -20,3 +20,9 @@ footer p
     text-size-adjust: 100%;
     line-height: 19.2px;
 }
+@media (max-width: 574px)
+{
+    footer p{
+        padding:20px 24px;
+    }
+}

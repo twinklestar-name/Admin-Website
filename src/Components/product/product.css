@@ -1,6 +1,6 @@
 .product-page
 {
-    background-color:#435c70;
+    background-color: #4e657a;
     margin:0;
 }
 .pro-container
@@ -12,19 +12,30 @@
 .pl-con
 {
     width:760px;
-    background-color: crimson;
     margin-bottom: 30px;
     height:700px;
     margin-right:30px;
+    background-color: #435c70;
 }
 .pl
 {
     height: 445px;
-    width:670px;
+    width:662px;
     margin:40px;
     margin-bottom: 15px;
     overflow-y: scroll;
-    background-color: black;
+    background-color:#435c70;
+}
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track
+{
+    background-color: #394e64;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color:#567086;
 }
 
 table 
@@ -53,11 +64,15 @@ tr
 }
 table thead th
 {
-    padding:14px 20px;
+    padding:14px 18px;
 }
 table tbody th
 {
     padding:25px 20px;
+}
+table tbody td
+{
+    padding-left:30px;
 }
 table input
 {
@@ -69,15 +84,15 @@ table input
 table tbody i
 {
    font-size: 20px;
-   background-color: blue;
-   border-radius:25px;
-   padding:12px;
+   background-color: #394e64;
+   border-radius:50%;
+   padding:11px;
 }
 .pc-con
 {
-    background-color: crimson;
+    background-color:#435c70;
     margin-bottom: 30px;
-    width: 330px;
+    width: 320px;
     height: 610px;
 }
 .add-btn,.de-se-btn
@@ -89,8 +104,7 @@ table tbody i
 }
 .pc h2
 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 17px;
     color: #fff;
     margin-bottom: 30px; 
     padding-top:20px;
@@ -98,7 +112,7 @@ table tbody i
 }
 .right-tc
 {
-    height: 465px;
+    height: 405px;
     margin-bottom: 15px;
     overflow-y: scroll;
     margin-left:40px;
@@ -108,4 +122,98 @@ table tbody i
 {
     width:230px;
     height: 465px;
+}
+.category-btn
+{
+    margin-left:40px;
+    width:240px;
+}
+
+@media (max-width: 574px)
+{
+    .pro-container
+    {
+        display: block;
+        margin:50px 20px;
+        margin-bottom: 0;
+    }
+    .pl-con
+    {
+        width: 500px;
+        height: 970px;
+        margin-bottom: 50px;
+    }
+    .l-table
+    {
+        width:500px;
+    }
+    .l-table thead
+    {
+        margin-top: 40px;
+    }
+    .l-table th
+    {
+        font-size: 20px;
+    }
+    .l-table tbody,.r-table tbody
+    {
+        font-size: 22px;
+    }
+    .l-table tbody i,.r-table tbody i
+    {
+        font-size: 30px;
+        padding: 20px;
+        border-radius: 50%;
+        margin-left:70px;
+        margin-top:20px;
+    }
+    .pl
+    {
+        width:430px;
+        height: 696px;
+        padding-top:40px;
+    }
+    .add-btn
+    {
+        width:430px;
+    }
+    .de-se-btn
+    {
+        width:430px;
+    }
+    button
+    {
+        padding: 25px 28px;
+        font-size: 20px;
+    }
+    .pc-con {
+        width: 500px;
+        height: 880px;
+        margin-bottom: 0px;
+        margin-right: 0;
+    }
+    .pc h2
+    {
+        font-size: 27px;
+        padding-top:40px;
+        padding-bottom: 20px;
+    }
+    .right-tc
+    {
+        height:600px;
+        margin-bottom: 30px;
+    }
+    .r-table
+    {
+        width: 410px;
+        height: 700px;
+    }
+    .extra-space
+    {
+        height:50px;
+    }
+    .category-btn {
+        margin-left: 40px;
+        width: 420px;
+    }
 }

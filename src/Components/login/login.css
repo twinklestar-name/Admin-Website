@@ -1,18 +1,18 @@
 .login-page
 {
-    background-color: #435c70;
+    background-color: #4e657a;
     margin: 0;
 }
 .log-container
 {
     box-sizing: border-box;
-    background-color: darkblue;
+    background-color: #435c70;
     width: 30%;
     padding-right: 70px;
     padding-left: 70px;
     margin: auto;
-    padding-top:60px;
-    padding-bottom:60px;
+    padding-top:40px;
+    padding-bottom:70px;
     box-shadow: 2px 2px 2px #567086;
     margin-top:40px;
     margin-bottom:40px;
@@ -35,6 +35,7 @@
     font-weight: 600;
     color: #fff;
     margin-left:70px;
+    margin-bottom: 40px;
 }
 .form-group
 {
@@ -56,13 +57,12 @@
     color: #fff;
     border: 0;
     display: block;
-    width: 177%;
+    width: 300px;
 }
 .submit-btn
 {
     font-size: 90%;
-    max-width: 200%;
-    width:195%;
+    width:335px;
     display: block;
     white-space: nowrap;
 }
@@ -84,5 +84,40 @@ button
     margin-top: 25px;
     background-color: #f5a623;
     border: 2px solid #f5a623;
+}
+@media (max-width: 574px)
+{
+.form-input {
+    width: 190%;
+    height:40px;
+}
+.submit-btn
+{
+    font-size: 25px;
+    width:210%;
+    height: 80px;
+    margin-top: 60px;
+}
+.log-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 0px;
+}
+.log-container
+{
+    margin:55px 20px;
+    width:90%;
+}
+.log-title
+{
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 0;
+    margin-bottom: 50px ;
+}
+.form-group label
+{
+    font-size: 25px;
+}
 }
 

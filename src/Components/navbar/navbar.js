@@ -1,48 +1,64 @@
-import React from 'react';
-import './navbar.css'
+import React, { Component } from 'react';
+import './navbar.css';
+import {Link} from 'react-router-dom';
 
-const Navbar=()=>{
+class Navbar extends Component{
+
+    state={
+        loggedInStatus:localStorage.getItem('userLoggedInStatus')
+    }
+
+    render(){
+
+        var userLoggedOut=()=>{
+            localStorage.setItem('userLoggedInStatus',false)
+        }
+
     return(
         <nav className="navbar">
             <div className="container">
-                <a className="navbar-brand" href="./Components/home/home.js">
+                <a className="navbar-brand">
                     <h1 className="title">PRODUCT ADMIN</h1>
                 </a>
-                <button className="navbar-toggle toggle">
+                <button className="toggle">
                     <i className="fas fa-bars tm-nav-icon"></i>
                 </button>
-                <div className="navbar-collapse collapse show">
-                    <ul className="navbar-nav nav">
-                        <li className="nav-item item">
-                            <a className="nav-link link" href="./Components/home/home.js">
+                <div className="collapse">
+                    <ul className="nav">
+                        <li className="item">
+                        <Link to={'/home'}><div className="link">
                                 <i className="fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
-                            </a>
+                            </div>
+                        </Link>
                         </li>
-                        <li className="nav-item item">
-                            <a className="nav-link link" href="./Components/home/home.js">
+                        <li className="item">
+                            <Link to={'/product'}><div className="link">
                                 <i className="fas fa-shopping-cart"></i>
                                 <p>Products</p>
-                            </a>
+                                </div>
+                            </Link>
                         </li>
-                        <li className="nav-item item">
-                            <a className="nav-link link" href="./Components/home/home.js">
+                        <li className="item">
+                        <Link to={'/account'}><div className="link">
                                 <i className="fas fa-user"></i>
                                 <p>Accounts</p>
-                            </a>
+                            </div>
+                        </Link>
                         </li>
                     </ul>
-                    <ul className="navbar-nav nav">
-                        <li className="nav-item item">
-                            <a className="nav-link link" href="./Components/home/home.js">
-                                <div className="admin">Admin, <b>Logout</b></div>
-                            </a>
+                    <ul className="nav">
+                        <li className="item">
+                        <Link to={'/'}><div className="link" onClick={userLoggedOut()}>
+                            <div className="admin">Admin,{this.state.loggedInStatus?<b>Logout</b>:<b>Login</b>} </div>
+                            </div>
+                        </Link>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    )
+    )}
 }
 
 export default Navbar;
