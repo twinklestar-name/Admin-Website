@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 class Login extends Component{
 
     state={
-        userField:false,
-        passwordField:false,
+        //userField:false,
+        //passwordField:false,
         //loggedInStatus:false
     }
 
@@ -17,7 +17,7 @@ class Login extends Component{
 
     handleSubmit=(e)=>{
         e.preventDefault()
-        if(this.state.userField && this.state.passwordField)
+        if(this.props.userField && this.props.passwordField)
         {
             this.props.history.push('/home');
         }
@@ -25,10 +25,10 @@ class Login extends Component{
 
     onInputChange=(e,name)=>{
         if(name==='username'){
-            e.target.value.length>0?this.setState({userField:true}):this.setState({userField:false})
+            e.target.value.length>0?this.props.onUserFiedTrue():this.props.onUserFiedFalse()
         }
         else if(name==='password'){
-            e.target.value.length>0?this.setState({passwordField:true}):this.setState({passwordField:false})
+            e.target.value.length>0?this.props.onPasswordFiedTrue():this.props.onPasswordFiedFalse()
         }
   }
 
@@ -57,7 +57,7 @@ class Login extends Component{
                                         <input name="password" type="password" className="form-input validate" id="password" onInput={(e)=>this.onInputChange(e,'password')} required></input>
                                     </div>
                                     <div className="form-group">
-                                    <button type="submit" className="submit-btn" onClick={this.loggedInStatus}>Login</button>
+                                    <button type="submit" className="submit-btn" onClick={this.props.onUserLoggedIn}>Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -71,10 +71,22 @@ class Login extends Component{
     )}
 }
 
-const mapDispatchToProps=(dispatch)=>{
+const mapGlobalStateToProps=(globalState)=>{
     return{
-        onUserLoggedIn: ()=>{dispatch({type:'USER_LOGIN'})}
+        userField:globalState.userField,
+        passwordField:globalState.passwordField,
+        userLoggedInStatus:globalState.loggedInStatus
     }
 }
 
-export default connect(null,mapDispatchToProps)(Login);
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        onUserLoggedIn: ()=>{dispatch({type:'USER_LOGIN'})},
+        onUserFiedTrue: ()=>{dispatch({type:'USERFIELD_YES'})},
+        onUserFiedFalse: ()=>{dispatch({type:'USERFIELD_NO'})},
+        onPasswordFiedTrue: ()=>{dispatch({type:'PASSWORDFIELD_YES'})},
+        onPasswordFiedFalse: ()=>{dispatch({type:'PASSWORDFIELD_NO'})}
+    }
+}
+
+export default connect(mapGlobalStateToProps,mapDispatchToProps)(Login);

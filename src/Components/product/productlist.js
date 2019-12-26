@@ -1,12 +1,14 @@
 import React,{Component} from 'react';
-import './productlist.css'
+import './productlist.css';
 
 class ProductList extends Component{
+
     state={
-        data:JSON.parse(localStorage.getItem("Response")).productsPage.products
+       // data:JSON.parse(localStorage.getItem("Response")).productsPage.products
     }
+    
     onDeleteIconClick=(e)=>{
-        let array=this.state.data
+        let array=JSON.parse(localStorage.getItem("Response")).productsPage.products
         let tempObject=JSON.parse(localStorage.getItem("Response"))
         array.splice(e.target.id,1)
         tempObject.productsPage.products=array

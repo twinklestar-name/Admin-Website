@@ -16,12 +16,12 @@ class Navbar extends Component{
         this.setState({loggedInStatus:false})
     }*/
 
-    render(){
+     displayCollapse=()=>{
+        this.setState({displayMenu:!this.state.displayMenu})
+        console.log(this.state.width)
+    }
 
-        var displayCollapse=()=>{
-            this.setState({displayMenu:!this.state.displayMenu})
-            console.log(this.state.width)
-        }
+    render(){
 
     return(
         <nav className="navbar">
@@ -29,7 +29,7 @@ class Navbar extends Component{
                 <a className="navbar-brand">
                     <h1 className="title">PRODUCT ADMIN</h1>
                 </a>
-                <button className="toggle" onClick={displayCollapse}>
+                <button className="toggle" onClick={this.displayCollapse}>
                     <i className="fas fa-bars tm-nav-icon"></i>
                 </button>
                 {this.state.width<=1000?(this.state.displayMenu?<div className="collapse">
@@ -58,8 +58,12 @@ class Navbar extends Component{
                     </ul>
                     <ul className="nav">
                         <li className="item">
-                        <Link to={'/'}><div className="link" onClick=''>
-                        {this.props.userLoggedInStatus?<div className="admin">Admin,<b>Logout</b></div>:<div className="admin">Admin,<b>Login</b></div>}
+                        <Link to={'/'}><div className="link" >
+                            {console.log(this.props.userLoggedInStatushi)}
+                        {this.props.userLoggedInStatushi?
+                        <div className="admin" onClick={this.props.onUserLoggedOut}>Admin,<b>Logout</b></div>
+                        :
+                        <div className="admin" /*onClick={this.props.onUserLoggedOut()}*/>Admin,<b>Login</b></div>}
                             </div>
                         </Link>
                         </li>
@@ -90,14 +94,13 @@ class Navbar extends Component{
                     </ul>
                     <ul className="nav">
                         <li className="item">
-                        {this.props.userLoggedInStatus?
-                        <Link to={'/'}><div className="link" onClick=''>
-                        <div className="admin">Admin,<b>Logout</b></div>
-                        </div></Link>
+                        <Link to={'/'}><div className="link" >
+                        {this.props.userLoggedInStatushi?
+                        <div className="admin" onClick={this.props.onUserLoggedOut}>Admin,<b>Logout</b></div>
                         :
-                        <Link to={'/'}><div className="link" onClick=''>
-                        <div className="admin">Admin,<b>Login</b></div>
-                        </div></Link>}
+                        <div className="admin" /*onClick={this.props.onUserLoggedOut()}*/>Admin,<b>Login</b></div>}
+                            </div>
+                        </Link>
                         </li>
                     </ul>
                 </div>}
@@ -107,9 +110,18 @@ class Navbar extends Component{
 
     const mapGlobalStateToProps=(globalState)=>{
         return{
-            userLoggedInStatus:globalState.loggedInStatus
+            userLoggedInStatushi:globalState.loggedInStatus,
+            //displayMenu:globalState.displayMenu,
+            //width:globalState.width
+        }
+    }
+
+    const mapDispatchToProps=(dispatch)=>{
+        return{
+            onUserLoggedOut: ()=>{dispatch({type:'USER_LOGOUT'})},
+            //onDisplayMenu: ()=>{dispatch({type:'MENU_SHOW'})}
         }
     }
 
 
-export default connect(mapGlobalStateToProps)(Navbar);
+export default connect(mapGlobalStateToProps,mapDispatchToProps)(Navbar);

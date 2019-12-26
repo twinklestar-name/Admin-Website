@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './addproduct.css';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Addproduct extends Component{
 
     state={
-        pdtnameField:false,
+        /*pdtnameField:false,
         descField:false,
         categoryField:false,
         dateField:false,
-        unitsField:false
+        unitsField:false*/
     }
 
     upi=()=>{
@@ -17,7 +18,7 @@ class Addproduct extends Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault()
-        if(this.state.pdtnameField && this.state.descField && this.state.dateField && this.state.unitsField)
+        if(this.props.pdtnameField && this.props.descField && this.props.dateField && this.props.unitsField)
         {
             this.props.history.push('/product');
         }
@@ -25,23 +26,23 @@ class Addproduct extends Component{
 
     onInputChange=(e,name)=>{
         if(name==='productname'){
-            e.target.value.length>0?this.setState({pdtnameField:true}):this.setState({pdtnameField:false})
+            e.target.value.length>0?this.props.onPdtNameFieldTrue():this.props.onPdtNameFieldFalse()
             localStorage.setItem('productname',e.target.value)
         }
         else if(name==='description'){
-            e.target.value.length>0?this.setState({descField:true}):this.setState({descField:false})
+            e.target.value.length>0?this.props.onDescFieldTrue():this.props.onDescFieldFalse()
             localStorage.setItem('description',e.target.value)
         }
         else if(name==='category'){
-            e.target.value.length>0?this.setState({categoryField:true}):this.setState({categoryField:false})
+            e.target.value.length>0?this.props.onCategoryFieldTrue():this.props.onCategoryFieldFalse()
             localStorage.setItem('category',e.target.value)
         }
         else if(name==='expirydate'){
-            e.target.value.length>0?this.setState({dateField:true}):this.setState({dateField:false})
+            e.target.value.length>0?this.props.onDateFieldTrue():this.props.ondateFieldFalse()
             localStorage.setItem('expirydate',e.target.value)
         }
         else if(name==='unitsinstocks'){
-            e.target.value.length>0?this.setState({unitsField:true}):this.setState({unitsField:false})
+            e.target.value.length>0?this.props.onUnitsFieldTrue():this.props.onUnitsFieldFalse()
             localStorage.setItem('unitsinstocks',e.target.value)
         }
         var newProduct={
@@ -127,4 +128,29 @@ class Addproduct extends Component{
         </div>
     )}}
 
-    export default Addproduct;
+    const mapGlobalStateToProps=(globalState)=>{
+        return{
+            pdtnameField:globalState.pdtnameField,
+            descField:globalState.descField,
+            categoryField:globalState.categoryField,
+            dateField:globalState.dateField,
+            unitsField:globalState.unitsField
+        }
+    }
+
+    const mapDispatchToProps=(dispatch)=>{
+        return{
+            onPdtNameFieldTrue: ()=>{dispatch({type:'PDTNAME_YES'})},
+            onPdtNameFieldFalse: ()=>{dispatch({type:'PDTNAME_NO'})},
+            onDescFieldTrue: ()=>{dispatch({type:'DESCRIPTION_YES'})},
+            onDescFieldFalse: ()=>{dispatch({type:'DESCRIPTION_NO'})},
+            onCategoryFieldTrue: ()=>{dispatch({type:'CATEGORY_YES'})},
+            onCategoryFieldFalse: ()=>{dispatch({type:'CATEGORY_NO'})},
+            onDateFieldTrue: ()=>{dispatch({type:'DATE_YES'})},
+            ondateFieldFalse: ()=>{dispatch({type:'DATE_NO'})},
+            onUnitsFieldTrue: ()=>{dispatch({type:'UNITS_YES'})},
+            onUnitsFieldFalse: ()=>{dispatch({type:'UNITS_NO'})}
+        }
+    }
+
+    export default connect(mapGlobalStateToProps,mapDispatchToProps)(Addproduct);

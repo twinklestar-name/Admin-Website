@@ -6,10 +6,6 @@ import {Link} from 'react-router-dom';
 
 class Product extends Component{
 
-    state={
-        data:JSON.parse(localStorage.getItem("Response")).productsPage.products,
-    }
-
     onDeleteSelectedBtnClick=(e)=>{
         let array=JSON.parse(localStorage.getItem("selectedItemsIds"))
         array.map(item=>console.log(item))

@@ -21,13 +21,13 @@ class App extends Component {
       this.props.onUserLoggedIn();
     })
     .catch(err=>{
-      console.log(err+"please refresh the page")
+      console.log(err+" =>please refresh the page")
     })
   }
 
   render(){
   return (
-    <BrowserRouter>{localStorage.setItem('userLoggedInStatus',false)}
+    <BrowserRouter>
     <div className={classes.App}>
       <Navbar/>
       <Switch>

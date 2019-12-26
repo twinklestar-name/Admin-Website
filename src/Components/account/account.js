@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './account.css'
+import './account.css';
+//import { connect } from 'react-redux';
 
 class Account extends Component{
 
@@ -102,33 +103,34 @@ class Account extends Component{
 
         switch(account)
     {
-        case 'Admin': accountData.Admin=''
+        case 'Admin': /*accountData.Admin=''*/
                     this.setState({accountName:''})
                     this.setState({accountEmail:''})
                     this.setState({accountPassword:''})
                     this.setState({accountPhone:''})
                     this.setState({accountType:account})
-                                break;
-        case 'Editor':accountData.Editor=''
+                    break;
+        case 'Editor'://accountData.Editor=''
                     this.setState({accountName:''})
                     this.setState({accountEmail:''})
                     this.setState({accountPassword:''})
                     this.setState({accountPhone:''})
                     this.setState({accountType:account})
-                     break;
-        case 'Merchant':accountData.Merchant=''
+                    break;
+        case 'Merchant'://accountData.Merchant=''
                         this.setState({accountName:''})
                         this.setState({accountEmail:''})
                         this.setState({accountPassword:''})
                         this.setState({accountPhone:''})
                         this.setState({accountType:account})
-                     break;
-        case 'Customer':accountData.Customer=''
+                        break;
+        case 'Customer'://accountData.Customer=''
                         this.setState({accountName:''})
                         this.setState({accountEmail:''})
                         this.setState({accountPassword:''})
                         this.setState({accountPhone:''})
                         this.setState({accountType:account})
+                        break;
      }
      localStorage.setItem('Response',accountData)
     }
@@ -220,6 +222,17 @@ class Account extends Component{
          </div>
     )}
     }
+
+/*const mapGlobalStateToProps=(globalState)=>{
+    return{
+        accountType:globalState.accountType,
+        accountName:globalState.accountName,
+        accountEmail:globalState.accountEmail,
+        accountPassword:globalState.accountPassword,
+        accountPhone:globalState.accountPhone,
+        pic:globalState.pic
+    }
+}*/
 
     
 export default Account;

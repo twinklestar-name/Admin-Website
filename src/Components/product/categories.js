@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './categories.css'
+import './categories.css';
 
 class Categories extends Component{
 
