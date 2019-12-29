@@ -1,10 +1,10 @@
 import React from 'react';
 import './home.css'
-import Latesthits from '../graphs/latesthit';
-import Perfomance from '../graphs/perfomance';
-import StorageInformation from '../graphs/storageInformtion';
-import Notification from './notification';
-import Order from './order';
+import Latesthits from '../../Components/home/graphs/latesthit';
+import Perfomance from '../../Components/home/graphs/perfomance';
+import StorageInformation from '../../Components/home/graphs/storageInformtion';
+import Notification from '../../Components/home/Notification/notification';
+import Order from '../../Components/home/Order/order';
 
 const Dashboard=(props)=>{
     return(

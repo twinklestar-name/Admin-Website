@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import './product.css';
-import Categories from './categories';
-import ProductList from './productlist';
 import {Link} from 'react-router-dom';
+import Categories from '../../Components/categories/Categories';
+import ProductList from '../../Components/productList/productlist';
+import Popup from '../../Components/Popup/popup';
+import { connect } from 'react-redux';
 
 class Product extends Component{
 
+    state={
+        render:''
+    }
+    
     onDeleteSelectedBtnClick=(e)=>{
-        let array=JSON.parse(localStorage.getItem("selectedItemsIds"))
-        array.map(item=>console.log(item))
         let object=JSON.parse(localStorage.getItem("Response"))
-        let tempObject=JSON.parse(localStorage.getItem("Response")).productsPage.products
-        console.log(tempObject)
-        array.map(item=>tempObject.splice(item,1))
-        console.log(tempObject)
-        object.productsPage.products=tempObject
-        console.log(object)
+        let list=JSON.parse(localStorage.getItem("Response")).productsPage.products
+        list=list.filter(li=>!li.selected)
+        object.productsPage.products=list
         localStorage.setItem("Response",JSON.stringify(object))
+        this.setState({render:true})
+        window.location.reload();
     }
 
     render(){
@@ -26,7 +29,7 @@ class Product extends Component{
              <div className="pro-container">
                  <div className="pl-con">
                      <div className="pl">
-                     <ProductList/>
+                      <ProductList/> 
                      </div>
                      <Link to={'/addproduct'}><button className="add-btn">ADD NEW PRODUCT</button></Link>
                      <button className="de-se-btn" onClick={(e)=>this.onDeleteSelectedBtnClick(e)}>DELETE SELECTED PRODUCTS</button>
@@ -36,10 +39,11 @@ class Product extends Component{
                          <h2>Product categories</h2>
                          <div className="right-tc">
                              <table className="r-table">
-                                <tbody><Categories/></tbody>
+                                 <Categories/>
                              </table>
                          </div>
-                         <Link to={'/addproduct'}><button className="category-btn">ADD NEW CATEGORY</button></Link>
+                         <Link to={'/product/popup'}><button className="category-btn" onClick={this.props.onShowPopup}>ADD NEW CATEGORY</button></Link>
+                         {/* {this.props.showPopup?<Popup/>:null} */}
                      </div>
                  </div>
              </div>
@@ -48,4 +52,16 @@ class Product extends Component{
     )}
 }
 
-export default Product;
+const mapGlobalStateToProps=(globalState)=>{
+    return{
+        showPopup:globalState.showPopup
+    }
+}
+
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        onShowPopup: ()=>{dispatch({type:'SHOW_POPUP'})}
+    }
+}
+
+export default connect(mapGlobalStateToProps,mapDispatchToProps)(Product);

@@ -19,22 +19,20 @@ class Categories extends Component{
     render(){
         return(
             <div>
-                {
-                    this.state.data.map((item)=>{
+                    {this.state.data.map((item,pos)=>{
                         return(
-                            <tbody className="category">
-                            <tr>
+                            <tbody className="category sep-line" key={pos}>
+                            <tr >
                                <td>{item}</td>
                                <td>
                                    <a>
-                                      <i className="far fa-trash-alt tm-product-delete-icon" onClick={this.onDeleteIconClick}></i>
+                                      <i id={pos} className="far fa-trash-alt tm-product-delete-icon" onClick={this.onDeleteIconClick}></i>
                                    </a>
                                </td>
                            </tr>
                         </tbody>
                         )
-                    })
-                }
+                    })}
             </div>
         )
     }

@@ -5,7 +5,7 @@
 }
 .checkbox
 {
-    background: #ccc!important;
+    background-color: #394e64!important;
     -webkit-appearance: none;
     width:25px!important;
     height:25px!important;
@@ -21,4 +21,5 @@
     font-weight: bold;
     top:0px;
     left:5px;
+    color:#fff;
 }

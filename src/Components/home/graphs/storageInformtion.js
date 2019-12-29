@@ -5,7 +5,7 @@ class StorageInformation extends Component
 {
     state={
         graph:{
-            labels:Object.keys(JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage).map(item=>item),
+            labels:[`Used Storage(${JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage.used}GB)`, `System Storage(${JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage.system}GB)`,`Available Storage(${JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage.available}GB)`]/*.map(item=>item)*/,
             datasets:[{
                 data: [JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage.used, JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage.system,JSON.parse(localStorage.getItem("Response")).dasbhoardPage.storage.available],
                 borderColor: "white",

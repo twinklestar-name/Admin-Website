@@ -1,14 +1,14 @@
 const initialState = {
-    loggedInStatus:true,//localStorage.getItem('userLoggedInStatus')==='true',
-    //displayMenu:false,
-    //width:window.innerWidth,
+    loggedInStatus:false,//localStorage.getItem('userLoggedInStatus')==='true',
     userField:false,
     passwordField:false,
     pdtnameField:false,
     descField:false,
     categoryField:false,
     dateField:false,
-    unitsField:false
+    unitsField:false,
+    showPopup:false,
+    updatePopup:false
 }
 
 const mainReducer = (currentState = initialState, action) => {
@@ -21,9 +21,6 @@ const mainReducer = (currentState = initialState, action) => {
             localStorage.setItem('userLoggedInStatus',false)
             return {...currentState,loggedInStatus:false}
             break;
-        //case 'MENU_SHOW':
-           // return {...currentState,displayMenu:!currentState.displayMenu}
-            //break;
         case 'USERFIELD_YES':
             return {...currentState,userField:true}
             break;
@@ -65,6 +62,18 @@ const mainReducer = (currentState = initialState, action) => {
             break;
         case 'UNITS_NO':
             return {...currentState,unitsField:false}
+            break;
+        case 'SHOW_POPUP':
+            return {...currentState,showPopup:true}
+            break;
+        case 'HIDE_POPUP':
+            return {...currentState,showPopup:false}
+            break;
+        case 'SHOW_UPOPUP':
+            return {...currentState,updatePopup:true}
+            break;
+        case 'HIDE_UPOPUP':
+            return {...currentState,updatePopup:false}
 
             default: return {...currentState}
     }

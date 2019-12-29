@@ -21,6 +21,7 @@ class Addproduct extends Component{
         if(this.props.pdtnameField && this.props.descField && this.props.dateField && this.props.unitsField)
         {
             this.props.history.push('/product');
+            console.log(this.props)
         }
     }
 

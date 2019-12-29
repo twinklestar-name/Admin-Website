@@ -1,12 +1,13 @@
 import React, { Component }  from 'react';
 import classes from './App.module.css';
-import Navbar from './Components/navbar/navbar';
-import Footer from './Components/footer/footer';
-import Login from './Components/login/login';
-import Dashboard from './Components/home/home';
-import Product from './Components/product/product';
-import Account from './Components/account/account';
-import Addproduct from './Components/addproduct/addproduct';
+import Navbar from './Containers/navbar/navbar';
+import Footer from './Containers/footer/footer';
+import Login from './Containers/login/login';
+import Dashboard from './Containers/home/home';
+import Product from './Containers/product/product';
+import Account from './Containers/account/account';
+import Addproduct from './Containers/addproduct/addproduct';
+import Popup from './Components/Popup/popup';
 import axios from 'axios';
 import { Route, BrowserRouter, Switch }  from 'react-router-dom';
 
@@ -31,6 +32,7 @@ class App extends Component {
     <div className={classes.App}>
       <Navbar/>
       <Switch>
+            <Route path="/product/popup" component={Popup} />
             <Route path="/addproduct" component={Addproduct} />
             <Route path="/account" component={Account} />
             <Route path="/product" component={Product} />

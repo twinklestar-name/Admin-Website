@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
 import './notification.css'
 
-class Notification extends Component{
+const Notification=()=>{
 
-    notification=JSON.parse(localStorage.getItem("Response")).dasbhoardPage.notifications.map((item)=>{
+    let notification=JSON.parse(localStorage.getItem("Response")).dasbhoardPage.notifications.map((item,pos)=>{
         return(
-                <div className="notification">
+                <div key={pos} className="notification">
                     <img className="noti-images" src={item.pic}/>
                     <div>
                         <h4 className="message">{item.message}</h4>
@@ -15,14 +15,12 @@ class Notification extends Component{
         )
     })
 
-    render(){
+    
         return(
             <div>
-                {this.notification}
+                {notification}
             </div>
         )
     }
-
-}
 
 export default Notification;

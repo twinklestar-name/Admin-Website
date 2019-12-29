@@ -136,17 +136,24 @@ option
     margin-left:40px;
     margin-right:40px;
     width:80%;
+    padding:20px 15px;
 }
 .delete-btn
 {
     width:600px;
+    padding:15px 15px;
 }
 .update-btn
 {
-    padding:0;
+    padding:15px 15px;
     width:46%;
     height:50px;
     margin-top:30px;
+}
+.acc-form-group
+{
+    margin-bottom: 15px;
+    margin-top:10px;
 }
 @media (max-width: 574px)
 {
@@ -159,6 +166,7 @@ option
 .delete-btn
 {
     width:435px;
+    padding:25px 15px;
 }
 .update-btn
 {
@@ -212,7 +220,7 @@ option
     margin-right: 15px;
 }
 .set-con {
-    height: 1000px;
+    height: 1180px;
     margin-top: 35px;
     width: 500px;
     margin-bottom: 0px;
@@ -241,6 +249,17 @@ option
    position: absolute;
    top:720px;
    left:250px;
+}
+.acc-form-group
+{
+    margin-bottom: 25px;
+    margin-top:20px;
+    font-size: 20px;
+}
+.acc-form-group input
+{
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 }

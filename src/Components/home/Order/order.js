@@ -3,14 +3,16 @@ import './order.css'
 
 class Order extends Component{
 
-    order=JSON.parse(localStorage.getItem("Response")).dasbhoardPage.orders.map((item)=>{
+    order=JSON.parse(localStorage.getItem("Response")).dasbhoardPage.orders.map((item,pos)=>{
         return(
-                    <tbody>
-                        <tr className="order-row">
-                            <th scope="row">
-                                <b>{item.orderNo}</b>
+                    <tbody key={pos} className="sep-line">
+                        <tr className="order-row" >
+                            <th scope="row" >
+                                <b>{`#${item.orderNo}`}</b>
                             </th>
-                            <td><div className="circle"></div>{item.status}</td>
+                            <td><div className={[item.status==='Pending'?'pending':
+                            (item.status==='Cancelled'?'cancelled':
+                            (item.status==='Moving'?'moving':'deliver'))].join(' ')}></div>{item.status}</td>
                             <td>{item.operators}</td>
                             <td>{item.location}</td>
                             <td>{item.distance}</td>

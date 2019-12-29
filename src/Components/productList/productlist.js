@@ -7,6 +7,17 @@ class ProductList extends Component{
        // data:JSON.parse(localStorage.getItem("Response")).productsPage.products
     }
     
+    constructor(props){
+        super(props)
+        let array=JSON.parse(localStorage.getItem('Response')).productsPage.products
+        array.map(item=>
+            item.selected=false
+            )
+        this.state={
+            products:array
+        }
+    }
+
     onDeleteIconClick=(e)=>{
         let array=JSON.parse(localStorage.getItem("Response")).productsPage.products
         let tempObject=JSON.parse(localStorage.getItem("Response"))
@@ -16,11 +27,13 @@ class ProductList extends Component{
         this.setState({data:array})
     }
 
-    selectedItemsIds=[];
-
     onChkBoxClick=(e)=>{
-        this.selectedItemsIds.push(e.target.id)
-        localStorage.setItem('selectedItemsIds',`[${this.selectedItemsIds}]`)
+        let array=this.state.products
+        array[e.target.id].selected=true
+        console.log(array)
+        let object=JSON.parse(localStorage.getItem("Response"))
+        object.productsPage.products=array
+        localStorage.setItem("Response",JSON.stringify(object))
     }
 
     // productlist=this.state.data.map((item,pos)=>{
@@ -45,9 +58,9 @@ class ProductList extends Component{
     
     productlist=()=>(JSON.parse(localStorage.getItem("Response")).productsPage.products.map((item,pos)=>{
         return(
-            <tr key={pos}>
+            <tr key={pos} className='sep-line'>
                <th scope="row">
-               <input id={pos} type="checkbox" class="checkbox" onClick={(e)=>this.onChkBoxClick(e)}></input>
+               <input id={pos} type="checkbox" /*checked={false}*/ className="checkbox" onClick={(e)=>this.onChkBoxClick(e)}></input>
                </th>
                <td scope="row">{item.name}</td>
                <td scope="row">{item.unitSold}</td>

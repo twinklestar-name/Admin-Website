@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './account.css';
-//import { connect } from 'react-redux';
+import UpdatePopup from '../../Components/updatePopup/upopup'
+import { connect } from 'react-redux';
 
 class Account extends Component{
 
@@ -10,7 +11,8 @@ class Account extends Component{
         accountEmail:'',
         accountPassword:'',
         accountPhone:'',
-        pic:'https://i.pinimg.com/originals/3b/c9/ba/3bc9bacfb9d042585160732260fe4c63.png'
+        pic:'https://i.pinimg.com/originals/3b/c9/ba/3bc9bacfb9d042585160732260fe4c63.png',
+        pageData:JSON.parse(localStorage.getItem("Response")).accountsPage,
     }
 
     onSelectAccount=(e)=>{
@@ -66,99 +68,126 @@ class Account extends Component{
 
     handleSubmit=(e)=>{
         e.preventDefault()
-        var accountData=JSON.parse(localStorage.getItem("Response")).accountsPage
+        var accountData=JSON.parse(localStorage.getItem("Response"))
         var account=this.state.accountType
         console.log(accountData)
 
         switch(account)
     {
-        case 'Admin': accountData.Admin.name=this.state.accountName
-                        accountData.Admin.email=this.state.accountEmail
-                        accountData.Admin.password=this.state.accountPassword
-                        accountData.Admin.phone=this.state.accountPhone
+        case 'Admin': accountData.accountsPage.Admin.name=this.state.accountName
+                        accountData.accountsPage.Admin.email=this.state.accountEmail
+                        accountData.accountsPage.Admin.password=this.state.accountPassword
+                        accountData.accountsPage.Admin.phone=this.state.accountPhone
                     break;
-        case 'Editor': accountData.Editor.name=this.state.accountName
-                        accountData.Editor.email=this.state.accountEmail
-                        accountData.Editor.password=this.state.accountPassword
-                        accountData.Editor.phone=this.state.accountPhone
+        case 'Editor': accountData.accountsPage.Editor.name=this.state.accountName
+                        accountData.accountsPage.Editor.email=this.state.accountEmail
+                        accountData.accountsPage.Editor.password=this.state.accountPassword
+                        accountData.accountsPage.Editor.phone=this.state.accountPhone
                      break;
-        case 'Merchant':  accountData.Merchant.name=this.state.accountName
-                            accountData.Merchant.email=this.state.accountEmail
-                            accountData.Merchant.password=this.state.accountPassword
-                            accountData.Merchant.phone=this.state.accountPhone
+        case 'Merchant':  accountData.accountsPage.Merchant.name=this.state.accountName
+                            accountData.accountsPage.Merchant.email=this.state.accountEmail
+                            accountData.accountsPage.Merchant.password=this.state.accountPassword
+                            accountData.accountsPage.Merchant.phone=this.state.accountPhone
                      break;
-        case 'Customer':  accountData.Customer.name=this.state.accountName
-                            accountData.Customer.email=this.state.accountEmail
-                            accountData.Customer.password=this.state.accountPassword
-                            accountData.Customer.phone=this.state.accountPhone
+        case 'Customer':  accountData.accountsPage.Customer.name=this.state.accountName
+                            accountData.accountsPage.Customer.email=this.state.accountEmail
+                            accountData.accountsPage.Customer.password=this.state.accountPassword
+                            accountData.accountsPage.Customer.phone=this.state.accountPhone
      }
-     localStorage.setItem('Response',accountData)
+     localStorage.setItem('Response',JSON.stringify(accountData))
     }
 
     onDeleteAccountClick=()=>{
         this.setState({pic:'https://i.pinimg.com/originals/3b/c9/ba/3bc9bacfb9d042585160732260fe4c63.png'})
-        var accountData=JSON.parse(localStorage.getItem("Response")).accountsPage
+        var accountData=JSON.parse(localStorage.getItem("Response"))
         var account=this.state.accountType
         console.log(accountData)
 
         switch(account)
     {
-        case 'Admin': /*accountData.Admin=''*/
-                    this.setState({accountName:''})
+        case 'Admin':this.setState({accountName:''})
                     this.setState({accountEmail:''})
                     this.setState({accountPassword:''})
                     this.setState({accountPhone:''})
-                    this.setState({accountType:account})
+                    this.setState({accountType:''})
+                    delete accountData.accountsPage.Admin
                     break;
-        case 'Editor'://accountData.Editor=''
-                    this.setState({accountName:''})
+        case 'Editor':this.setState({accountName:''})
                     this.setState({accountEmail:''})
                     this.setState({accountPassword:''})
                     this.setState({accountPhone:''})
-                    this.setState({accountType:account})
+                    this.setState({accountType:''})
+                    delete accountData.accountsPage.Editor
                     break;
-        case 'Merchant'://accountData.Merchant=''
-                        this.setState({accountName:''})
+        case 'Merchant': this.setState({accountName:''})
                         this.setState({accountEmail:''})
                         this.setState({accountPassword:''})
                         this.setState({accountPhone:''})
-                        this.setState({accountType:account})
+                        this.setState({accountType:''})
+                        delete accountData.accountsPage.Merchant
                         break;
-        case 'Customer'://accountData.Customer=''
-                        this.setState({accountName:''})
+        case 'Customer':this.setState({accountName:''})
                         this.setState({accountEmail:''})
                         this.setState({accountPassword:''})
                         this.setState({accountPhone:''})
-                        this.setState({accountType:account})
+                        this.setState({accountType:''})
+                        delete accountData.accountsPage.Customer
                         break;
+        default:  alert('Cannot Delete Default Account')
      }
-     localStorage.setItem('Response',accountData)
+     localStorage.setItem('Response',JSON.stringify(accountData))
+     this.setState({pageData:JSON.parse(localStorage.getItem("Response")).accountsPage})
     }
 
     onDeleteIconClick=()=>{
         this.setState({pic:'https://i.pinimg.com/originals/3b/c9/ba/3bc9bacfb9d042585160732260fe4c63.png'})
-        var accountData=JSON.parse(localStorage.getItem("Response")).accountsPage
+        var accountData=JSON.parse(localStorage.getItem("Response"))
         var account=this.state.accountType
         console.log(accountData)
 
         switch(account)
     {
-        case 'Admin': accountData.Admin.profilePic=''
+        case 'Admin': accountData.accountsPage.Admin.profilePic=''
                      break;
-        case 'Editor':accountData.Editor.profilePic=''
+        case 'Editor':accountData.accountsPage.Editor.profilePic=''
                      break;
-        case 'Merchant':accountData.Merchant.profilePic=''
+        case 'Merchant':accountData.accountsPage.Merchant.profilePic=''
                      break;
-        case 'Customer':accountData.Customer.profilePic=''
+        case 'Customer':accountData.accountsPage.Customer.profilePic=''
      }
-     localStorage.setItem('Response',accountData);
+     localStorage.setItem('Response',JSON.stringify(accountData));
 
     }
 
-    onUpload=(e)=>{
-        console.log(e.target.value)
-        var newImage=e.target.value
-        this.setState({pic:`./${newImage}`})
+    onPicUpload=(e)=>{
+        var account=this.state.accountType
+        var object=JSON.parse(localStorage.getItem('Response'))
+        console.log(e.target.files)
+        if(e.target.files && e.target.files[0])
+        {
+            let reader=new FileReader()
+            reader.onload=(e)=>{
+                let imgSrc=e.target.result
+                this.setState({pic:e.target.result})
+                switch(account)
+                {
+                    case 'Admin':object.accountsPage.Admin.profilePic=imgSrc;
+                                    break;
+                    case 'Merchant':object.accountsPage.Merchant.profilePic=imgSrc;
+                                    break;
+                    case 'Editor':object.accountsPage.Merchant.profilePic=imgSrc;
+                                    break;
+                    case 'Customer':object.accountsPage.Merchant.profilePic=imgSrc;
+                                    break;
+                    default:alert("Cant change default image");
+                                break;
+                }
+                localStorage.setItem("Response",JSON.stringify(object))
+                console.log(object.accountsPage)
+                this.setState({pageData:JSON.parse(localStorage.getItem("Response")).accountsPage})
+            }
+            reader.readAsDataURL(e.target.files[0])
+        }
     }
 
     render(){
@@ -171,10 +200,9 @@ class Account extends Component{
                      <p>Accounts</p>
                      <select className="dropdown" value={this.state.accountType} onInput={(e)=>this.onSelectAccount(e)}>
                          <option value="0">Select Account</option>
-                         <option value="Admin">Admin</option>
-                         <option value="Editor">Editor</option>
-                         <option value="Merchant">Merchant</option>
-                         <option value="Customer">Customer</option>
+                            {Object.keys(this.state.pageData).map((list,pos)=>
+                                <option value={list} key={pos}>{list}</option>
+                            )}
                      </select>
                  </div>
                  <div className="as-con">
@@ -184,33 +212,34 @@ class Account extends Component{
                          <img src={this.state.pic} alt="avatar"/>
                          <i className="far fa-trash-alt tm-product-delete-icon" onClick={this.onDeleteIconClick}></i>
                          </div>
-                         <input type='file' accept="image/*" className='choose-file' onChange={(e)=>this.onUpload(e)}></input>
+                         <input type='file' accept="image/*" className='choose-file' onChange={(e)=>this.onPicUpload(e)}></input>
                          <button className="upload-pic-btn">UPLOAD NEW PHOTO</button>
                      </div>
                      <div className="set-con">
                          <h2>Account Settings</h2>
                          <form className="acc-form" onSubmit={this.handleSubmit}>
-                            <div className="form-group">
+                            <div className="acc-form-group">
                                 <label for="accountname">Account Name</label>
                                 <input name="accountname" type="text" className="form" id="accountname" onInput={(e)=>this.onInputChange(e,'name')} value={this.state.accountName}></input>
                             </div>
-                            <div className="form-group">
+                            <div className="acc-form-group">
                                 <label for="email">Account Email</label>
                                 <input name="email" type="email" className="form" id="email" onInput={(e)=>this.onInputChange(e,'email')}  value={this.state.accountEmail}></input>
                             </div>
-                            <div className="form-group">
+                            <div className="acc-form-group">
                                 <label for="password">Password</label>
                                 <input name="password" type="password" className="form" id="password" onInput={(e)=>this.onInputChange(e,'password')} value={this.state.accountPassword}></input>
                             </div>
-                            <div className="form-group">
+                            <div className="acc-form-group">
                                 <label for="password">Re-enter Password</label>
                                 <input name="password" type="password" className="form" id="password" onInput={(e)=>this.onInputChange(e,'password')} value={this.state.accountPassword}></input>
                             </div>
-                            <div className="form-group">
+                            <div className="acc-form-group">
                                 <label for="phone">Phone</label>
                                 <input name="phone" type="text" className="form" id="phone" onInput={(e)=>this.onInputChange(e,'phone')} value={this.state.accountPhone}></input>
                             </div>
-                            <button className="update-btn" type='submit'>UPDATE YOUR PROFILE</button>
+                            <button className="update-btn" type='submit' onClick={()=>this.props.onShowPopup()}>UPDATE YOUR PROFILE</button>
+                            {this.props.updatePopup? <UpdatePopup/> :null}
                             <div className="form-group">
                                 <button className="delete-btn" onClick={this.onDeleteAccountClick}>DELETE YOUR ACCOUNT</button>
                             </div>
@@ -223,16 +252,17 @@ class Account extends Component{
     )}
     }
 
-/*const mapGlobalStateToProps=(globalState)=>{
+const mapGlobalStateToProps=(globalState)=>{
     return{
-        accountType:globalState.accountType,
-        accountName:globalState.accountName,
-        accountEmail:globalState.accountEmail,
-        accountPassword:globalState.accountPassword,
-        accountPhone:globalState.accountPhone,
-        pic:globalState.pic
+        updatePopup:globalState.updatePopup
     }
-}*/
+}
+
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        onShowPopup:()=>{dispatch({type:'SHOW_UPOPUP'})}
+    }
+}
 
     
-export default Account;
+export default connect(mapGlobalStateToProps,mapDispatchToProps)(Account);

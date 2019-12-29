@@ -87,6 +87,7 @@ table tbody i
    background-color: #394e64;
    border-radius:50%;
    padding:11px;
+   cursor: pointer;
 }
 .pc-con
 {
@@ -101,6 +102,7 @@ table tbody i
     display: block;
     margin-left: 40px;
     margin-bottom: 15px;
+    padding:20px 20px;
 }
 .pc h2
 {
@@ -127,6 +129,7 @@ table tbody i
 {
     margin-left:40px;
     width:240px;
+    padding:20px 15px;
 }
 
 @media (max-width: 574px)
