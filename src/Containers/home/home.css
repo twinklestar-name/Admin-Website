@@ -7,7 +7,7 @@
 }
 .dash-row
 {
-    margin:0 200px;
+    margin:0 13%;
 }
 .dash-title
 {
@@ -17,14 +17,14 @@
 }
 .dash-content
 {
-    margin:0 200px;
+    margin:0 13%;
     margin-bottom: 40px;
 }
 .con
 {
-    width:530px;
+    width:47%;
     background-color:#435c70;
-    height:350px;
+    height:42%;
     display: inline-block;
     margin:14px;
 }
@@ -34,7 +34,7 @@
 }
 .storage-con,.noti-con
 {
-    width:530px;
+    width:47%;
     background-color:#435c70;
     height:450px;
     margin:14px;
@@ -62,12 +62,23 @@
     color: #fff;
     padding:10px 40px;
 }
+@media (max-width: 1274px)
+{
+    .latest-and-per-boxes
+    {
+        display:flex;
+    }
+}
 
 @media (max-width: 574px)
 {
     .dash-row
     {
         margin:0 20px;
+    }
+    .latest-and-per-boxes
+    {
+        display:block;
     }
     .dash-title
     {

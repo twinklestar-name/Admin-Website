@@ -5,22 +5,22 @@
 }
 .pro-container
 {
-    margin: 0 200px;
+    margin: 0 13%;
     margin-top:35px;
     display: flex;
 }
 .pl-con
 {
-    width:760px;
+    width:68%;
     margin-bottom: 30px;
-    height:700px;
+    height:76%;
     margin-right:30px;
     background-color: #435c70;
 }
 .pl
 {
     height: 445px;
-    width:662px;
+    width:86%;
     margin:40px;
     margin-bottom: 15px;
     overflow-y: scroll;
@@ -45,11 +45,11 @@ table
     margin-bottom: 0;
     border-collapse: collapse;
     margin:0;
-    height: 445px;
+    height: 44%;
 }
 .l-table
 {
-    width:653px;
+    width:100%;
 }
 thead
 {
@@ -93,16 +93,16 @@ table tbody i
 {
     background-color:#435c70;
     margin-bottom: 30px;
-    width: 320px;
+    width: 28.5%;
     height: 610px;
 }
 .add-btn,.de-se-btn
 {
-    width:670px;
+    width:87%;
     display: block;
     margin-left: 40px;
     margin-bottom: 15px;
-    padding:20px 20px;
+    padding:16px 20px;
 }
 .pc h2
 {
@@ -128,8 +128,36 @@ table tbody i
 .category-btn
 {
     margin-left:40px;
-    width:240px;
+    width:74%;
+    padding:16px 15px;
+}
+@media (max-width: 1000px)
+{
+    .pro-container
+    {
+        display: block;
+        margin:50px 60px;
+        margin-bottom: 0;
+    }
+    .pc-con
+    {
+        background-color:#435c70;
+        margin-bottom: 30px;
+        width: 68%;
+        height: 610px;
+    }
+    .r-table
+{
+    width:530px;
+    height: 465px;
+}
+.category-btn
+{
+    margin-left:40px;
+    width:85%;
     padding:20px 15px;
+}
+    
 }
 
 @media (max-width: 574px)

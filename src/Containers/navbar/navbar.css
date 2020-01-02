@@ -16,7 +16,6 @@
     flex-wrap: wrap;
     font-size: 1.1%;
     font-weight: 400;
-    height: 100px;
     justify-content: space-between;
     margin-left: 8.5%;
     margin-right: 1.1%;
@@ -36,7 +35,7 @@
     text-transform: uppercase;
      font-size: 25px;
     font-weight: 700;
-    margin-left:60px;
+    margin-left:0%;
 }
 a
 {
@@ -67,7 +66,7 @@ li
  .link>i
 {
      margin-bottom: 0%;
-    margin-right:10px; 
+    margin-right:1%; 
      font-size: 0.9rem; 
 } 
 
@@ -79,7 +78,7 @@ li
     position:absolute;
     top:0;
     left:33%;
-    height:13.3%;
+    height:12.9%;
     box-shadow: none;
     border: none;
     display:flex;
@@ -117,7 +116,7 @@ li
     flex-direction: column;
     padding:20px 30px;
     margin-top: 0%;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     background-color: #f5a623;
 }
 .active i
@@ -141,7 +140,7 @@ li
     border: 1px solid transparent;
     margin-bottom: 0%;
     position: absolute;
-    top:33px;
+    top:31px;
     right:15px;
 }
 
@@ -149,6 +148,7 @@ li
 {
     .collapse
 {
+    display:block;
     width:21%;
     position: absolute;
     top:13.5%;
@@ -209,6 +209,7 @@ li
 {
     .collapse
 {
+    display: block;
     width:28%;
     position: absolute;
     top:13.5%;
@@ -257,7 +258,7 @@ li
 }
 .active i
 {
-    padding-right: 12%;
+    padding-right: 10%;
 }
 .admin {
     margin-top: 2%;
@@ -300,10 +301,10 @@ li
     display: block;
     box-sizing: border-box;
     background-color: #567086;
-    width:60%;
+    width:40%;
     position: absolute;
     top:72px;
-    left:84%;
+    left:55%;
     text-align: left;
     box-shadow: 2px 2px 2px grey;
     border: 0.5px solid grey;
@@ -356,4 +357,28 @@ li
 .tm-nav-icon {
    font-size: 20px;
 }
+}
+@media (max-width: 374px)
+{
+    .collapse{
+        left:82%;
+        width:60%;
+    }
+    .link i
+{
+    font-size: 22px;
+    padding-right: 10%;
+}
+.navbar-brand
+{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.login-page {
+    background-color: #4e657a;
+    margin: 0%;
+    height: 120vh!important;
+}
+    
+    
 }

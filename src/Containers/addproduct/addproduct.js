@@ -11,6 +11,8 @@ class Addproduct extends Component{
         categoryField:false,
         dateField:false,
         unitsField:false*/
+        addPdtImg:'',
+        pic:'https://www.lifewire.com/thmb/yLFRNBmwLcKDRnkaZ0B0nXgLAQM=/960x640/filters:no_upscale():max_bytes(150000):strip_icc()/upload-2c485b5b6fef41f39a05afb9adfce03e.png'
     }
 
     upi=()=>{
@@ -69,6 +71,24 @@ class Addproduct extends Component{
        console.log(JSON.parse(localStorage.getItem('Response')))
    }
 
+   onPicUpload=(e)=>{
+    var img=this.state.addPdtImg
+    var object=JSON.parse(localStorage.getItem('Response'))
+    console.log(e.target.files)
+    if(e.target.files && e.target.files[0])
+    {
+        let reader=new FileReader()
+        reader.onload=(e)=>{
+            let imgSrc=e.target.result
+            this.setState({pic:e.target.result})
+            object.img=imgSrc;
+            localStorage.setItem("Response",JSON.stringify(object))
+            console.log(object)
+        }
+        reader.readAsDataURL(e.target.files[0])
+    }
+}
+
     render(){
     return(
         <div className="add-page">
@@ -113,11 +133,9 @@ class Addproduct extends Component{
                             </form>
                     </div>
                     <div className="img-section">
-                        <div className="upload-img">
-                            <i className="fas fa-cloud-upload-alt tm-upload-icon"></i>
-                        </div>
+                        <img className="upload-img" src={this.state.pic}/>
                         <div>
-                            <input id="fileInput" type="file"></input>
+                            <input id="fileInput" type="file" accept='image/*' className="pdt-choose-file" onChange={(e)=>this.onPicUpload(e)}></input>
                             <input type="button" className="upload-btn" value="UPLOAD PRODUCT IMAGE" onClick={this.upi}></input>
                         </div>
                     </div>

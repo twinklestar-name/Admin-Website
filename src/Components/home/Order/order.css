@@ -11,6 +11,11 @@
 {
     border-bottom:2px solid #435c70;
 }
+.sep-line:hover
+{
+    opacity: 0.7;
+    background-color: #435c70;
+}
 .pending
 {
     display: inline-block;

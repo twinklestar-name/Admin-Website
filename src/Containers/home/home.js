@@ -13,6 +13,7 @@ const Dashboard=(props)=>{
                     <p className="dash-title">welcome back,<b>Admin</b></p>
                 </div>
                 <div className="dash-content">
+                    <div className='latest-and-per-boxes'>
                     <div className="con">
                         <div className="con-block">
                             <h2 className="con-title">Latest Hits</h2>
@@ -24,6 +25,7 @@ const Dashboard=(props)=>{
                             <h2 className="con-title">Perfomance</h2>
                             <Perfomance/>
                         </div>
+                    </div>
                     </div>
                     <div className="storage-and-noti-boxes">
                     <div className="storage-con">

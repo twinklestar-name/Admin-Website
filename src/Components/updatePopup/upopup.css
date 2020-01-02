@@ -1,10 +1,10 @@
 .upopup-box
 {
-    width:470px;
-    height:370px;
+    width:32%;
+    height:47%;
     position: absolute;
-    top:300px;
-    left:500px;
+    top:60%;
+    left:30%;
     box-sizing: border-box;
     border: 2px solid #fff;
     border-radius: 20px;
@@ -16,7 +16,7 @@
 .upopup-box i
 {
     color:#fff;
-    margin-left:430px;
+    margin-left:90%;
     margin-top: 15px;
     font-size: 20px;
 }
@@ -28,7 +28,7 @@
 {
     padding:30px;
     font-size: 25px;
-    margin-top: 100px;
+    margin-top: 15%;
     background-color: #4e657a;
 }
 
@@ -36,7 +36,8 @@
 {
     .upopup-box
     {
-        top:1200px;
-        left:30px;
+        top:1650px;
+        left:50px;
+        width:120%;
     }
 }

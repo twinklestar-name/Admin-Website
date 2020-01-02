@@ -19,7 +19,8 @@ class Product extends Component{
         object.productsPage.products=list
         localStorage.setItem("Response",JSON.stringify(object))
         this.setState({render:true})
-        window.location.reload();
+        //window.location.reload();
+        this.forceUpdate();
     }
 
     render(){
